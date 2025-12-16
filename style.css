@@ -102,7 +102,7 @@
 #terminal-container,
 #terminal-shell {
     height: 100vh;
-    overflow-y: auto;
+    /* overflow-y: auto; */
 }
 
 .animate-blink {
@@ -465,7 +465,7 @@
     /* Terminal card pre text */
     .card-3d pre {
         font-size: 0.7rem;
-        overflow-x: auto;
+        /* overflow-x: auto; */
     }
     
     /* Header adjustments */
@@ -609,4 +609,16 @@ body {
     .terminal-line {
         font-size: 0.875rem;
     }
+}
+
+/* Bouton retour visible */
+button[onclick="returnToModeSelection()"] {
+    background-color: #e5e7eb;
+    border: 2px solid #1f2937;
+}
+
+.dark button[onclick="returnToModeSelection()"] {
+    background-color: #374151;
+    border-color: #6b7280;
+    color: white;
 }
