@@ -444,3 +444,169 @@
 .gui-glow {
     animation: pulse-glow 2s ease-in-out infinite;
 }
+
+/* Responsive Utilities */
+@media (max-width: 768px) {
+    /* Ajustements pour mobile */
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    /* Mode selection page mobile */
+    #mode-selection-page h1 {
+        font-size: 2.5rem;
+    }
+    
+    .card-3d {
+        padding: 1.5rem;
+    }
+    
+    /* Terminal card pre text */
+    .card-3d pre {
+        font-size: 0.7rem;
+        overflow-x: auto;
+    }
+    
+    /* Header adjustments */
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    /* Section titles */
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    /* Contact form */
+    #contact-form {
+        padding: 1.5rem;
+    }
+    
+    /* Navigation buttons */
+    nav a {
+        font-size: 0.875rem;
+        padding: 0.5rem 1rem;
+    }
+    
+    /* Timeline adjustments for mobile */
+    .timeline-horizontal-line {
+        width: 30px;
+    }
+    
+    /* Tools grid on mobile */
+    #tools-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    /* Small mobile adjustments */
+    #mode-selection-page h1 {
+        font-size: 2rem;
+    }
+    
+    .card-3d {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    /* Single column layout on very small screens */
+    .grid-cols-2 {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Skills and tools on very small screens */
+    #skills-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    #tools-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.75rem;
+    }
+    
+    /* Project items */
+    #projects-container .flex {
+        padding: 0.75rem;
+    }
+    
+    /* Contact form inputs */
+    #contact-form input,
+    #contact-form textarea {
+        padding: 0.75rem;
+    }
+}
+
+/* Ensure images are responsive */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Fix for overflow on mobile */
+body {
+    overflow-x: hidden;
+}
+
+/* Responsive font sizes */
+.text-6xl {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+}
+
+.text-5xl {
+    font-size: clamp(2rem, 6vw, 3rem);
+}
+
+.text-3xl {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+}
+
+/* Responsive padding/margin */
+.p-10 {
+    padding: clamp(1rem, 3vw, 2.5rem);
+}
+
+.mb-16 {
+    margin-bottom: clamp(1rem, 4vw, 4rem);
+}
+
+/* Responsive grid gaps */
+.gap-10 {
+    gap: clamp(1rem, 3vw, 2.5rem);
+}
+
+/* Hide/show elements based on screen size */
+.mobile-only {
+    display: block;
+}
+
+.desktop-only {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .mobile-only {
+        display: none;
+    }
+    
+    .desktop-only {
+        display: block;
+    }
+}
+
+/* Fix for terminal on mobile */
+@media (max-width: 768px) {
+    #terminal-shell {
+        padding: 1rem;
+        font-size: 0.875rem;
+    }
+    
+    #terminal-input {
+        font-size: 0.875rem;
+    }
+    
+    .terminal-line {
+        font-size: 0.875rem;
+    }
+}

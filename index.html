@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>Ouedraogo Abdoul Wahab - Développeur Web et Mobile</title>
 
@@ -136,28 +135,30 @@
             <span class="material-symbols-outlined mr-2"></span>
         </button>
 
-        <header class="flex flex-col md:flex-row items-center justify-center gap-10 pt-10 mb-16">
-            <div class="relative w-fit mx-auto md:mx-0">
+        <header
+            class="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10 pt-6 md:pt-10 mb-10 md:mb-16 px-4">
+            <div class="relative w-fit mx-auto">
                 <img id="profile-image" src="https://github.com/oabdoulwahab.png"
                     alt="Portrait de Ouedraogo Abdoul Wahab"
-                    class="w-40 h-40 rounded-full object-cover border-4 border-black shadow-hard bg-white z-10 relative" />
+                    class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-black shadow-hard bg-white z-10 relative" />
                 <span class="absolute -top-4 -left-8 text-accent-teal font-black text-sm -rotate-12 tracking-widest"
                     style="font-family: cursive">Depuis 1998</span>
                 <span class="absolute top-0 -right-4 text-yellow-400 text-3xl animate-pulse">✦</span>
                 <span class="absolute bottom-0 -left-2 text-yellow-400 text-3xl animate-pulse delay-100">✦</span>
                 <a href="path/to/your/cv.pdf" download
-                    class="mt-4 inline-block bg-accent-teal text-white font-bold py-2 px-4 rounded-lg shadow-hard hover:bg-teal-400 transition-colors">Télécharger
-                    mon CV</a>
+                    class="mt-4 inline-block bg-accent-teal text-white font-bold py-2 px-4 rounded-lg shadow-hard hover:bg-teal-400 transition-colors text-sm md:text-base">
+                    Télécharger mon CV
+                </a>
             </div>
 
-            <div class="text-center md:text-left max-w-lg">
-                <h1 class="text-5xl font-black mb-4 uppercase tracking-tight">Bonjour,</h1>
-                <p class="text-lg font-medium leading-relaxed text-gray-800">
+            <div class="text-center md:text-left max-w-lg px-4 md:px-0">
+                <h1 class="text-3xl md:text-5xl font-black mb-4 uppercase tracking-tight">Bonjour,</h1>
+                <p class="text-base md:text-lg font-medium leading-relaxed text-gray-800">
                     Je m'appelle <span id="profile-name" class="font-bold">Chargement...</span>. Je suis
                     <span id="profile-job" class="scribble-underline font-bold">...</span> basé à
-                    <span id="profile-location" class="scribble-underline font-bold">...</span>. <br /><br />
-                    <span id="typing-text" class="font-bold text-accent-teal"></span>
-                    <span class="border-r-4 border-black animate-blink ml-0.5"> </span>
+                    <span id="profile-location" class="scribble-underline font-bold">...</span>.<br />
+                    <span id="typing-text" class="font-bold text-accent-teal block mt-2"></span>
+                    <span class="border-r-4 border-black animate-blink ml-0.5 inline-block h-6 align-middle"> </span>
                 </p>
             </div>
         </header>
@@ -175,64 +176,52 @@
                 <section class="space-y-6">
                     <h2
                         class="text-xl font-black uppercase text-center border-b-4 border-black inline-block px-2 mx-auto block w-fit">
-                        Compétences</h2>
-                    <div id="skills-container" class="grid grid-cols-2 gap-4 text-center"></div>
+                        Compétences
+                    </h2>
+                    <div id="skills-container"
+                        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 gap-3 md:gap-4 text-center"></div>
                 </section>
 
                 <section class="space-y-6">
                     <h2
                         class="text-xl font-black uppercase text-center border-b-4 border-black inline-block px-2 mx-auto block w-fit">
-                        Outils</h2>
-                    <div id="tools-container" class="grid grid-cols-2 gap-6 justify-items-center"></div>
+                        Outils
+                    </h2>
+                    <div id="tools-container"
+                        class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-2 gap-3 md:gap-4 justify-items-center">
+                    </div>
                 </section>
 
-                <section class="space-y-6">
+                <section class="space-y-6 md:col-span-1">
                     <h2
                         class="text-xl font-black uppercase text-center border-b-4 border-black inline-block px-2 mx-auto block w-fit">
-                        Projets</h2>
-                    <div id="projects-container" class="flex flex-col gap-4"></div>
+                        Projets
+                    </h2>
+                    <div id="projects-container" class="flex flex-col gap-3 md:gap-4"></div>
                 </section>
             </div>
 
-            <section class="mt-20 mx-auto max-w-4xl px-4 hidden lg:block">
+            <!-- La section expérience existante -->
+            <section class="mt-20 mx-auto max-w-4xl px-4">
                 <h2 class="text-2xl font-black mb-12 text-center uppercase tracking-wide">Expérience Professionnelle
                 </h2>
                 <div class="relative flex justify-center">
                     <div class="hidden lg:block absolute bottom-0 -left-28 z-10 pointer-events-none">
                         <img alt="Decoration" src="exp.png" class="" />
                     </div>
-                    <div id="experience-container" class="relative max-w-2xl pl-20">
-                        <div class="absolute left-20 top-0 bottom-0 w-1.5 bg-black rounded-full z-0"></div>
-                    </div>
-                </div>
-            </section>
 
-            <section class="space-y-6 block lg:hidden">
-                <h2 class="text-xl font-black mb-4 text-center uppercase">Expérience</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="bg-white border-2 border-black rounded-xl p-6 shadow-hard">
-                        <h3 class="font-black uppercase">Développeur Backend</h3>
-                        <p class="text-xs font-bold mt-1 text-gray-500">2022-2024 (2 ans)</p>
-                        <p class="text-gray-700 mt-2">Développement et maintenance d'applications web avec Laravel,
-                            optimisation des bases de données MySQL et intégration de systèmes de paiement.</p>
+                    <!-- Version desktop -->
+                    <div class="hidden lg:block">
+                        <div id="experience-container" class="relative max-w-2xl pl-20">
+                            <div class="absolute left-20 top-0 bottom-0 w-1.5 bg-black rounded-full z-0"></div>
+                        </div>
                     </div>
-                    <div class="bg-white border-2 border-black rounded-xl p-6 shadow-hard">
-                        <h3 class="font-black uppercase">Développeur Frontend</h3>
-                        <p class="text-xs font-bold mt-1 text-gray-500">2021-2022 (1 an)</p>
-                        <p class="text-gray-700 mt-2">Création d'interfaces web dynamiques et réactives, amélioration de
-                            l'expérience utilisateur et intégration avec le backend.</p>
-                    </div>
-                    <div class="bg-white border-2 border-black rounded-xl p-6 shadow-hard">
-                        <h3 class="font-black uppercase">Développeur Mobile</h3>
-                        <p class="text-xs font-bold mt-1 text-gray-500">2021 (6 mois)</p>
-                        <p class="text-gray-700 mt-2">Développement d'applications mobiles multiplateformes et
-                            intégration de fonctionnalités temps réel.</p>
-                    </div>
-                    <div class="bg-white border-2 border-black rounded-xl p-6 shadow-hard">
-                        <h3 class="font-black uppercase">Freelance</h3>
-                        <p class="text-xs font-bold mt-1 text-gray-500">2024</p>
-                        <p class="text-gray-700 mt-2">Réalisation de projets web et mobile pour des clients variés, du
-                            cahier des charges à la livraison finale.</p>
+
+                    <!-- Version mobile/tablette -->
+                    <div class="block lg:hidden">
+                        <div id="experience-mobile" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Les éléments seront ajoutés dynamiquement par JavaScript -->
+                        </div>
                     </div>
                 </div>
             </section>
