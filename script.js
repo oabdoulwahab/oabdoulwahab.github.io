@@ -1145,20 +1145,19 @@ function openModal({ title, desc, sections = [] }) {
     return;
   }
 
-  // Mettre à jour le contenu
   document.getElementById("modal-title").textContent = title || "";
   document.getElementById("modal-desc").textContent = desc || "";
 
   const content = document.getElementById("modal-content");
-  if (content) {
-    content.innerHTML = sections
-      .map(
-        (s) => `
-      <div class="border-l-4 border-accent-teal pl-4 mb-4">
-        <h3 class="font-black uppercase mb-2">${s.label}</h3>
+  content.innerHTML = sections
+    .map(
+      (s) => `
+      <div class="border-l-4 border-accent-teal pl-4">
+        <h3 class="font-black uppercase mb-1">${s.label}</h3>
         <div class="text-sm text-gray-700 dark:text-gray-300">
           ${s.value}
         </div>
+
       </div>
     `
       )
@@ -1167,30 +1166,61 @@ function openModal({ title, desc, sections = [] }) {
 
   // FORCER l'affichage du modal
   modal.classList.remove("hidden");
-  
-  // Ajouter des styles inline pour garantir l'affichage
-  modal.style.display = "block";
-  modal.style.opacity = "1";
-  modal.style.visibility = "visible";
-  modal.style.zIndex = "999999";
-  modal.style.position = "fixed";
-  modal.style.top = "0";
-  modal.style.left = "0";
-  modal.style.width = "100%";
-  modal.style.height = "100%";
-  
-  // Ajouter une classe au body pour empêcher le défilement
-  document.body.classList.add("modal-open");
+  // Force display and high z-index to ensure visibility when CSS or other scripts interfere
+  try {
+    modal.style.display = 'block';
+    modal.style.zIndex = 100000;
+    modal.style.opacity = 1;
+    modal.style.pointerEvents = 'auto';
+  } catch (e) {
+    logError('openModal: error forcing styles', e);
+  }
   document.body.style.overflow = "hidden";
-  document.body.style.position = "fixed";
-  document.body.style.width = "100%";
-  document.body.style.height = "100%";
-  
-  log('Modal ouvert avec succès', { 
-    title,
-    modalVisible: modal.style.display,
-    modalClasses: modal.className 
-  });
+  // Force overlay/dialog stacking order and log computed state for diagnosis
+  try {
+    const modalChildren = Array.from(modal.children);
+    const overlay = modalChildren[0];
+    const dialog = modalChildren[1];
+
+    if (overlay) {
+      overlay.style.zIndex = String(Number(modal.style.zIndex || 100000));
+      overlay.style.pointerEvents = 'auto';
+    }
+    if (dialog) {
+      dialog.style.zIndex = String(Number(modal.style.zIndex || 100000) + 1);
+      dialog.style.position = dialog.style.position || 'relative';
+      dialog.style.display = 'block';
+    }
+
+    // Log computed styles and bounding boxes
+    const modalStyle = window.getComputedStyle(modal);
+    const overlayStyle = overlay ? window.getComputedStyle(overlay) : null;
+    const dialogStyle = dialog ? window.getComputedStyle(dialog) : null;
+    const modalRect = modal.getBoundingClientRect ? modal.getBoundingClientRect() : null;
+    const dialogRect = dialog && dialog.getBoundingClientRect ? dialog.getBoundingClientRect() : null;
+
+    log('modal opened', {
+      title,
+      desc,
+      sectionsCount: sections.length,
+      modalClasses: modal.className,
+      modalStyle: {
+        display: modalStyle.display,
+        visibility: modalStyle.visibility,
+        opacity: modalStyle.opacity,
+      },
+      overlayStyle: overlayStyle
+        ? { display: overlayStyle.display, zIndex: overlayStyle.zIndex, pointerEvents: overlayStyle.pointerEvents }
+        : null,
+      dialogStyle: dialogStyle
+        ? { display: dialogStyle.display, zIndex: dialogStyle.zIndex, pointerEvents: dialogStyle.pointerEvents }
+        : null,
+      modalRect,
+      dialogRect,
+    });
+  } catch (err) {
+    logError('openModal: error inspecting children', err);
+  }
 }
 
 
