@@ -166,25 +166,6 @@
             <div class="absolute inset-0 bg-[#080808]"></div>
         </div>
 
-        <!-- <nav id="gui-nav" class="hidden absolute top-6 right-6 z-[9999]">
-
-            <a href="#Contactez-moi"
-                class="hidden md:flex fixed top-6 right-6 bg-primary text-white px-5 py-2 rounded-xl shadow-hard z-[1000] hover:scale-105 transition">
-                Contactez-moi
-            </a>
-
-            <div class="fixed bottom-6 right-6 flex flex-col gap-3 md:hidden z-[1000]">
-                <a href="#Contactez-moi"
-                    class="bg-primary text-white px-4 py-2 rounded-xl shadow-hard hover:scale-105 transition text-center">
-                    Contact
-                </a>
-                <a href="/cv.pdf"
-                    class="bg-accent-teal text-black px-4 py-2 rounded-xl shadow-hard hover:scale-105 transition text-center">
-                    Télécharger CV
-                </a>
-            </div>
-        </nav> -->
-
         <button onclick="returnToModeSelection()"
             class="bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-white px-4 py-2 rounded-xl shadow-hard hover:scale-105 transition flex items-center gap-2">
             <span class="material-symbols-outlined">swipe</span>
@@ -322,10 +303,13 @@
                 <p id="form-status" class="text-center text-sm font-bold mt-2 hidden"></p>
             </form>
         </section>
+
+    </div>
+
         <!-- ===============================
         🪟 MODAL DÉTAILS (GLOBAL)
         ================================ -->
-        <div id="details-modal" class="fixed inset-0 z-[999] hidden">
+        <div id="details-modal" class="fixed inset-0 z-[999999] hidden">
             <!-- Overlay -->
             <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeModal()"></div>
 
@@ -347,9 +331,6 @@
                 <div id="modal-content" class="space-y-4"></div>
             </div>
         </div>
-
-    </div>
-
     <!-- Script EmailJS pour le formulaire de contact -->
     <script>
         document.getElementById('contact-form').addEventListener('submit', function (event) {

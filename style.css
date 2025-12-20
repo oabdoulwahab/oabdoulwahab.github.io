@@ -816,3 +816,46 @@ body.modal-open {
     padding: 0.25rem !important;
   }
 }
+/* ================================
+   CORRECTIONS MODAL MOBILE
+================================ */
+@media (max-width: 768px) {
+  #details-modal {
+    z-index: 9999999 !important; /* Encore plus élevé pour mobile */
+  }
+  
+  #details-modal .relative {
+    margin-top: 10% !important;
+    width: 90% !important;
+    max-height: 85vh !important;
+  }
+  
+  /* S'assurer que le modal est toujours visible même avec le clavier virtuel */
+  #details-modal {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    overflow-y: auto !important;
+  }
+}
+
+/* S'assurer que le modal n'est pas affecté par les parents cachés */
+#details-modal {
+  display: none !important;
+}
+
+#details-modal:not(.hidden) {
+  display: block !important;
+}
+
+/* Forcer l'affichage sur mobile */
+@media (max-width: 768px) {
+  #details-modal:not(.hidden) {
+    display: flex !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    padding-top: 20px !important;
+  }
+}
